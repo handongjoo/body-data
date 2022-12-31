@@ -7,6 +7,7 @@ app.use(express.json());
 
 // 쿼리스트링으로 데이터 주고받기
 app.get('/querystring', (req, res) => {
+    // querystring?id=abcd 형식으로 url작성 후 데이터 주고 받음
     const {id} = req.query
     res.send({id});
 });
@@ -21,7 +22,8 @@ app.post('/body-multipart', (req, res) => {
 
 //body에 json형태로 데이터를 삽입하여 보내줌
 app.post('/body-json', (req, res) => {
-    //객체구조분해할당으로 여러가지 데이터를 한 문장으로 작성하여 받아올 수 있음
+    // 객체구조분해할당으로 여러가지 데이터를 한 문장으로 작성하여 받아올 수 있음
+    // body에서 {"id":"value","password":"value"} 형식으로 데이터를 보냄
     const {id, password} = req.body
     res.json({id,password})
 });
